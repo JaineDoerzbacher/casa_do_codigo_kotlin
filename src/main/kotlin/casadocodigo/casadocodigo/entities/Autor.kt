@@ -13,7 +13,7 @@ data class Autor (
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long?,
+    val id: Long? = null,
 
     @NotNull
     @NotBlank
@@ -29,9 +29,6 @@ data class Autor (
     val descAutor: String,
 
     @Column(name = "LOCAL")
-    val local: LocalDateTime
-
-
-
+    val local: LocalDateTime = LocalDateTime.now()
 
 )
