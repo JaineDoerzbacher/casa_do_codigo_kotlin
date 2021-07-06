@@ -1,21 +1,19 @@
 package casadocodigo.casadocodigo.validators
 
-import casadocodigo.casadocodigo.validators.ExistsIdValidator
-import java.lang.annotation.Documented
+import java.lang.annotation.*
 import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
+import java.lang.annotation.Target
 import javax.validation.Constraint
 import javax.validation.Payload
 import kotlin.reflect.KClass
 
 @Documented
-@Constraint(validatedBy = [ExistsIdValidator::class])
-@Target(AnnotationTarget.FIELD)
-@Retention(
-    RetentionPolicy.RUNTIME
-)
+@Constraint(validatedBy = [UniqueValueValidator::class])
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
 
-annotation class ExistsId(
+annotation class UniqueValue(
+
 
     //Mensagem que será informada, caso não tenha nenhuma, será retornado a string abaixo
     val message: String = "{...}",
