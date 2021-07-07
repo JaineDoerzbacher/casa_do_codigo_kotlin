@@ -10,7 +10,6 @@ import javax.validation.constraints.NotNull
 @Table(name = "TB_AUTOR")
 data class Autor (
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
