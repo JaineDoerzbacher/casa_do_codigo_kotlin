@@ -17,6 +17,7 @@ class AutorValidator: Validator {
 
     //Especifica qual classe será validada
     override fun supports(aClass: Class<*>): Boolean {
+
         return AutorDTO::class.java == aClass
     }
 
@@ -33,6 +34,7 @@ class AutorValidator: Validator {
         val listaAutores: List<Autor?> = autorRepository.findByEmail(autorDTO.emailAutor)
 
         if (listaAutores.isNotEmpty()) {
+
             errors.rejectValue("emailAutor", "O e-mail já existe!")
         }
     }
