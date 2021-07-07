@@ -25,7 +25,7 @@ class CategoriaValidator: Validator {
         val categoriaDTO = o as CategoriaDTO
 
 
-        val listaCategorias: List<Categoria?> = CategoriaRepository.findByNome(categoriaDTO.nomeCategoria)
+        val listaCategorias: List<Categoria?> = categoriaRepository.findByNome(categoriaDTO.nomeCategoria)
 
         if (listaCategorias.isNotEmpty()) {
             errors.rejectValue("nomeCategoria", "Essa categoria já existe!")

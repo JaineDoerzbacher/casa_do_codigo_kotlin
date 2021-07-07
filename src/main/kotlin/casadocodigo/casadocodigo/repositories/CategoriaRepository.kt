@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param
 import org.springframework.stereotype.Repository
 
 @Repository
-interface CategoriaRepository: JpaRepository<Categoria, Long> {
+interface CategoriaRepository: JpaRepository<Categoria, Long>{
 
     @Query("select a from Categoria a where a.nomeCategoria = :nome")
     fun findByNome(@Param("nome") nome: String): List<Categoria>
