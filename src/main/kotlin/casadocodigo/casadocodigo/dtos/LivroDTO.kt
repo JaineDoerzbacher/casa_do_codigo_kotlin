@@ -63,15 +63,24 @@ class LivroDTO(
         this.isbn,
         this.data_publicacao,
         null,
-        this.emailAutor )
+        null )
     }
 
+    //companion object é usada para funções estáticas
+    companion object{
 
-    fun converter(livros: List<Livro>): List<LivroDTO> {
+        fun converter(livros: List<Livro>): List<LivroDTO> {
 
-        return livros.stream().map(Function { livro: Livro ->
-            LivroDTO(livro.titulo, livro.resumo, livro.sumario, livro.preco, livro.numeroPaginas,
-            livro.isbn, livro.data_publicacao, livro.categoria.id?) }).collect(Collectors.toList())
+            return livros.stream().map{ livro: Livro ->
+                LivroDTO(livro.titulo, livro.resumo,
+                    livro.sumario, livro.preco,
+                    livro.numeroPaginas,
+                    livro.isbn,
+                    livro.data_publicacao,
+                    livro.categoria!!.id!!,
+                    livro.autor!!.emailAutor)
+            }.collect(Collectors.toList())
+        }
     }
 
 }

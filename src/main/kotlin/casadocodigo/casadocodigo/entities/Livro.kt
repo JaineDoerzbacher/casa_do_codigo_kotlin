@@ -58,7 +58,7 @@ data class Livro(
     @ManyToOne
     @JoinColumn(name = "ID_AUTOR")
     @NotNull
-    val autor: String
+    val autor: Autor?
 
 
 )

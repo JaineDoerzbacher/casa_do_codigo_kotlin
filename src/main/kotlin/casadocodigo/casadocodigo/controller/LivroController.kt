@@ -33,7 +33,7 @@ class LivroController {
     }
 
     @GetMapping
-    fun lista(titulo: String?): List<LivroDTO?>? {
+    fun lista(titulo: String?): List<LivroDTO> {
 
         val livro  =  if (titulo == null) {
 
